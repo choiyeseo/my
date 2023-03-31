@@ -1,20 +1,13 @@
+def get_fixed_price(rate, discounted_price): 
+    original_price = discounted_price / (1-rate) # 원래 가격 = 할인된 가격 * rate 
+    return original_price
 
-name = input('Input his/her name: ')
-msg1 = ('Hello ' + name + ',')
-msg2 = 'Welcome to Seoul.'
+rate = int(input('할인율은? ')) # 20% 입력
+rate = rate / 100
+discounted_price_a = int(input('A 상품의 할인된 가격은? '))
+discounted_price_b = int(input('B 상품의 할인된 가격은? '))
 
-if (len(msg1) > len(msg2)):
-    nstr = len(msg1)
-else:
-    nstr = len(msg2)
-
-def rep_char(a, b):
-    print(a * b)
-
-def draw_the_line(c):
-    rep_char('-', nstr)
-    print(msg1)
-    print(msg2)
-    rep_char('-', nstr)
-
-draw_the_line(name)
+original_price_a = int(get_fixed_price(rate, discounted_price_a))
+original_price_b = int(get_fixed_price(rate, discounted_price_b))
+print('A 상품의 정가는', original_price_a, '원')
+print('B 상품의 정가는', original_price_b, '원')
